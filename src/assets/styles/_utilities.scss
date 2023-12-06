@@ -1,0 +1,791 @@
+@use "sass:math";
+@import "./variables";
+/*------------
+Screens -----
+------------*/
+$md: 959px;
+$lg: 1279px;
+$xl: 1919px;
+
+/*------------
+MARGINS -----
+------------*/
+$margins: (
+  0: 0,
+  5: (
+    math.div(5, 15),
+  ) + rem,
+  7: (
+    math.div(7, 15),
+  ) + rem,
+  8: (
+    math.div(8, 15),
+  ) + rem,
+  10: (
+    math.div(10, 15),
+  ) + rem,
+  11: (
+    math.div(11, 15),
+  ) + rem,
+  12: (
+    math.div(12, 15),
+  ) + rem,
+  13: (
+    math.div(13, 15),
+  ) + rem,
+  14: (
+    math.div(14, 15),
+  ) + rem,
+  15: (
+    math.div(15, 15),
+  ) + rem,
+  16: (
+    math.div(16, 15),
+  ) + rem,
+  17: (
+    math.div(17, 15),
+  ) + rem,
+  20: (
+    math.div(20, 15),
+  ) + rem,
+  24: (
+    math.div(24, 15),
+  ) + rem,
+  25: (
+    math.div(25, 15),
+  ) + rem,
+  27: (
+    math.div(27, 15),
+  ) + rem,
+  28: (
+    math.div(28, 15),
+  ) + rem,
+  29: (
+    math.div(29, 15),
+  ) + rem,
+  30: (
+    math.div(30, 15),
+  ) + rem,
+  31: (
+    math.div(31, 15),
+  ) + rem,
+  32: (
+    math.div(32, 15),
+  ) + rem,
+  33: (
+    math.div(33, 15),
+  ) + rem,
+  34: (
+    math.div(34, 15),
+  ) + rem,
+  35: (
+    math.div(35, 15),
+  ) + rem,
+  40: (
+    math.div(40, 15),
+  ) + rem,
+  43: (
+    math.div(43, 15),
+  ) + rem,
+  45: (
+    math.div(45, 15),
+  ) + rem,
+  50: (
+    math.div(50, 15),
+  ) + rem,
+  51: (
+    math.div(51, 15),
+  ) + rem,
+  53: (
+    math.div(53, 15),
+  ) + rem,
+  54: (
+    math.div(54, 15),
+  ) + rem,
+  55: (
+    math.div(55, 15),
+  ) + rem,
+  60: (
+    math.div(60, 15),
+  ) + rem,
+  65: (
+    math.div(65, 15),
+  ) + rem,
+  70: (
+    math.div(70, 15),
+  ) + rem,
+  72: (
+    math.div(72, 15),
+  ) + rem,
+  75: (
+    math.div(75, 15),
+  ) + rem,
+  80: (
+    math.div(80, 15),
+  ) + rem,
+  85: (
+    math.div(85, 15),
+  ) + rem,
+  90: (
+    math.div(90, 15),
+  ) + rem,
+  95: (
+    math.div(95, 15),
+  ) + rem,
+  100: (
+    math.div(100, 15),
+  ) + rem,
+  205: (
+    math.div(205, 15),
+  ) + rem,
+  300: (
+    math.div(300, 15),
+  ) + rem,
+  auto: auto,
+);
+
+// margins example: m-30
+@each $margin, $margin-value in $margins {
+  .m-#{$margin} {
+    margin: $margin-value !important;
+  }
+}
+
+// margins top: mt-30
+@each $margin, $margin-value in $margins {
+  .mt-#{$margin} {
+    margin-top: $margin-value !important;
+  }
+}
+
+// margins right: mr-30
+@each $margin, $margin-value in $margins {
+  .mr-#{$margin} {
+    margin-right: $margin-value !important;
+  }
+}
+
+// margins bottom: mb-/assets/styles/30
+@each $margin, $margin-value in $margins {
+  .mb-#{$margin} {
+    margin-bottom: $margin-value !important;
+  }
+}
+
+// margins left: ml-30
+@each $margin, $margin-value in $margins {
+  .ml-#{$margin} {
+    margin-left: $margin-value !important;
+  }
+}
+
+// margins y (top and bottom): my-30
+@each $margin, $margin-value in $margins {
+  .my-#{$margin} {
+    margin-top: $margin-value !important;
+    margin-bottom: $margin-value !important;
+  }
+}
+
+// margins x (left and right): mx-30
+@each $margin, $margin-value in $margins {
+  .mx-#{$margin} {
+    margin-left: $margin-value !important;
+    margin-right: $margin-value !important;
+  }
+}
+
+/*-------------
+ PADDINGS -----
+-------------*/
+$paddings: (
+  0: 0,
+  5: (
+    math.div(5, 15),
+  ) + rem,
+  10: (
+    math.div(10, 15),
+  ) + rem,
+  14: (
+    math.div(14, 15),
+  ) + rem,
+  15: (
+    math.div(15, 15),
+  ) + rem,
+  16: (
+    math.div(16, 15),
+  ) + rem,
+  20: (
+    math.div(20, 15),
+  ) + rem,
+  25: (
+    math.div(25, 15),
+  ) + rem,
+  30: (
+    math.div(30, 15),
+  ) + rem,
+  32: (
+    math.div(32, 15),
+  ) + rem,
+  35: (
+    math.div(35, 15),
+  ) + rem,
+  40: (
+    math.div(40, 15),
+  ) + rem,
+  45: (
+    math.div(45, 15),
+  ) + rem,
+  50: (
+    math.div(50, 15),
+  ) + rem,
+  55: (
+    math.div(55, 15),
+  ) + rem,
+  60: (
+    math.div(60, 15),
+  ) + rem,
+  65: (
+    math.div(65, 15),
+  ) + rem,
+  70: (
+    math.div(70, 15),
+  ) + rem,
+  75: (
+    math.div(75, 15),
+  ) + rem,
+  80: (
+    math.div(80, 15),
+  ) + rem,
+  85: (
+    math.div(85, 15),
+  ) + rem,
+  90: (
+    math.div(90, 15),
+  ) + rem,
+  95: (
+    math.div(95, 15),
+  ) + rem,
+  100: (
+    math.div(100, 15),
+  ) + rem,
+);
+
+// paddings: p-30
+@each $padding, $padding-value in $paddings {
+  .p-#{$padding} {
+    padding: $padding-value !important;
+  }
+}
+
+// paddings top: pt-30
+@each $padding, $padding-value in $paddings {
+  .pt-#{$padding} {
+    padding-top: $padding-value !important;
+  }
+}
+
+// paddings right: pr-30
+@each $padding, $padding-value in $paddings {
+  .pr-#{$padding} {
+    padding-right: $padding-value !important;
+  }
+}
+
+// paddings bottom: pb-30
+@each $padding, $padding-value in $paddings {
+  .pb-#{$padding} {
+    padding-bottom: $padding-value !important;
+  }
+}
+
+// paddings left: pl-30
+@each $padding, $padding-value in $paddings {
+  .pl-#{$padding} {
+    padding-left: $padding-value !important;
+  }
+}
+
+// paddings y (top and bottom): py-30
+@each $padding, $padding-value in $paddings {
+  .py-#{$padding} {
+    padding-top: $padding-value !important;
+    padding-bottom: $padding-value !important;
+  }
+}
+
+// paddings x (left and right): px-30
+@each $padding, $padding-value in $paddings {
+  .px-#{$padding} {
+    padding-left: $padding-value !important;
+    padding-right: $padding-value !important;
+  }
+}
+
+/* font size */
+$fontSizes: (
+  10: (
+    math.div(10, 15),
+  ) + rem,
+  11: (
+    math.div(11, 15),
+  ) + rem,
+  12: (
+    math.div(12, 15),
+  ) + rem,
+  13: (
+    math.div(13, 15),
+  ) + rem,
+  14: (
+    math.div(14, 15),
+  ) + rem,
+  16: (
+    math.div(16, 15),
+  ) + rem,
+  18: (
+    math.div(18, 15),
+  ) + rem,
+  20: (
+    math.div(20, 15),
+  ) + rem,
+  22: (
+    math.div(22, 15),
+  ) + rem,
+  24: (
+    math.div(24, 15),
+  ) + rem,
+  26: (
+    math.div(26, 15),
+  ) + rem,
+  28: (
+    math.div(28, 15),
+  ) + rem,
+  30: (
+    math.div(30, 15),
+  ) + rem,
+  32: (
+    math.div(32, 15),
+  ) + rem,
+  34: (
+    math.div(34, 15),
+  ) + rem,
+  36: (
+    math.div(36, 15),
+  ) + rem,
+  38: (
+    math.div(38, 15),
+  ) + rem,
+  40: (
+    math.div(40, 15),
+  ) + rem,
+  42: (
+    math.div(42, 15),
+  ) + rem,
+  44: (
+    math.div(44, 15),
+  ) + rem,
+  46: (
+    math.div(46, 15),
+  ) + rem,
+  48: (
+    math.div(48, 15),
+  ) + rem,
+  50: (
+    math.div(50, 15),
+  ) + rem,
+  52: (
+    math.div(52, 15),
+  ) + rem,
+  54: (
+    math.div(54, 15),
+  ) + rem,
+  56: (
+    math.div(56, 15),
+  ) + rem,
+  58: (
+    math.div(58, 15),
+  ) + rem,
+  60: (
+    math.div(60, 15),
+  ) + rem,
+);
+
+// font-30
+@each $fontSize, $fontSize-value in $fontSizes {
+  .font-#{$fontSize} {
+    font-size: $fontSize-value !important;
+  }
+}
+
+/*------------------
+ MEDIA QUERIES -----
+--------------------*/
+@media screen and (max-width: $lg) {
+  // Margins
+  @each $margin, $margin-value in $margins {
+    .m-lg-#{$margin} {
+      margin: $margin-value !important;
+    }
+    .mt-lg-#{$margin} {
+      margin-top: $margin-value !important;
+    }
+    .mb-lg-#{$margin} {
+      margin-bottom: $margin-value !important;
+    }
+    .mr-lg-#{$margin} {
+      margin-right: $margin-value !important;
+    }
+    .ml-lg-#{$margin} {
+      margin-left: $margin-value !important;
+    }
+    .my-lg-#{$margin} {
+      margin-top: $margin-value !important;
+      margin-bottom: $margin-value !important;
+    }
+    .mx-lg-#{$margin} {
+      margin-right: $margin-value !important;
+      margin-left: $margin-value !important;
+    }
+  }
+  // Paddings
+  @each $padding, $padding-value in $paddings {
+    .p-lg-#{$padding} {
+      padding: $padding-value !important;
+    }
+    .pt-lg-#{$padding} {
+      padding-top: $padding-value !important;
+    }
+    .pb-lg-#{$padding} {
+      padding-bottom: $padding-value !important;
+    }
+    .pr-lg-#{$padding} {
+      padding-right: $padding-value !important;
+    }
+    .pl-lg-#{$padding} {
+      padding-left: $padding-value !important;
+    }
+    .py-lg-#{$padding} {
+      padding-top: $padding-value !important;
+      padding-bottom: $padding-value !important;
+    }
+    .px-lg-#{$padding} {
+      padding-right: $padding-value !important;
+      padding-left: $padding-value !important;
+    }
+  }
+}
+
+@media screen and (max-width: $md) {
+  // Margins
+  @each $margin, $margin-value in $margins {
+    .m-md-#{$margin} {
+      margin: $margin-value !important;
+    }
+    .mt-md-#{$margin} {
+      margin-top: $margin-value !important;
+    }
+    .mb-md-#{$margin} {
+      margin-bottom: $margin-value !important;
+    }
+    .mr-md-#{$margin} {
+      margin-right: $margin-value !important;
+    }
+    .ml-md-#{$margin} {
+      margin-left: $margin-value !important;
+    }
+    .my-md-#{$margin} {
+      margin-top: $margin-value !important;
+      margin-bottom: $margin-value !important;
+    }
+    .mx-md-#{$margin} {
+      margin-right: $margin-value !important;
+      margin-left: $margin-value !important;
+    }
+  }
+  // Paddings
+  @each $padding, $padding-value in $paddings {
+    .p-md-#{$padding} {
+      padding: $padding-value !important;
+    }
+    .pt-md-#{$padding} {
+      padding-top: $padding-value !important;
+    }
+    .pb-md-#{$padding} {
+      padding-bottom: $padding-value !important;
+    }
+    .pr-md-#{$padding} {
+      padding-right: $padding-value !important;
+    }
+    .pl-md-#{$padding} {
+      padding-left: $padding-value !important;
+    }
+    .py-md-#{$padding} {
+      padding-top: $padding-value !important;
+      padding-bottom: $padding-value !important;
+    }
+    .px-md-#{$padding} {
+      padding-right: $padding-value !important;
+      padding-left: $padding-value !important;
+    }
+  }
+
+  // Font size
+  @each $fontSize, $fontSize-value in $fontSizes {
+    .font-lg-#{$fontSize} {
+      font-size: $fontSize-value;
+    }
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+// Positions
+
+.p-absolute {
+  position: absolute;
+}
+
+.p-relative {
+  position: relative;
+}
+
+.p-fixed {
+  position: fixed;
+}
+
+// Text Align
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+// Size
+.h-screen {
+  min-height: 100vh;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-half {
+  width: 50%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-20 {
+  width: 20%;
+}
+
+.w-150 {
+  width: 150px;
+}
+
+.w-200 {
+  width: 300px;
+}
+
+.w-300 {
+  width: 300px;
+}
+
+.w-400 {
+  width: 400px;
+}
+
+.w-500 {
+  width: 500px;
+}
+
+.w-600 {
+  width: 600px;
+}
+
+.w-fit-content {
+  width: fit-content;
+}
+
+.w-max-content {
+  width: max-content;
+}
+
+// Text Colors
+.text-white {
+  color: white;
+}
+
+.text-warn {
+  color: $warning;
+}
+
+.text-black {
+  color: $text-black;
+}
+
+.text-primary {
+  color: $primary;
+}
+
+// Z-indexes
+.z-index-0 {
+  z-index: 0 !important;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.z-index-100 {
+  z-index: 100;
+}
+
+.z-index-200 {
+  z-index: 200;
+}
+
+// Fonts
+.font-bold {
+  font-weight: bold !important;
+}
+
+.font-700 {
+  font-weight: 700;
+}
+
+.font-uppercase {
+  text-transform: uppercase;
+}
+
+.font-lowercase {
+  text-transform: lowercase;
+}
+
+.font-semiBold {
+  font-weight: 600;
+}
+
+.font-500 {
+  font-weight: 500;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+// Background
+.transparent {
+  background-color: transparent !important;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-none {
+  display: none;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-i-center {
+  align-items: center;
+}
+
+.btn-xs {
+  width: 100px;
+  height: 40px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.btn-cp {
+  height: 40px;
+  width: 100px;
+  font-size: 14px;
+}
+
+.btn-sm {
+  font-size: 12px;
+  width: 130px;
+  height: 28px;
+}
+
+.btn-md {
+  width: 200px;
+  height: 40px;
+  font-size: 14px;
+}
+
+.btn-lg {
+  width: 200px;
+  height: 60px;
+  font-size: 18px;
+}
+
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  line-height: 18px;
+  border: 2px solid $primary;
+  cursor: pointer;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-line-through {
+  text-decoration: line-through;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.link {
+  color: $primary;
+  text-decoration: none;
+}
+
+.container {
+  padding: 20px;
+}
