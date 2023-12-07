@@ -1,0 +1,15 @@
+@if(highways && highways.roads.length > 0) {
+<h3>Highways</h3>
+
+<div class="ripple-container">
+  @for (highway of highways.roads; track highway) {
+  <div
+    class="road-ripple mat-elevation-z4"
+    matRipple
+    [routerLink]="['/', highway, 'construction-sites']"
+  >
+    {{ highway }}
+  </div>
+  }
+</div>
+}
