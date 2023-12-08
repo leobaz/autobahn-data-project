@@ -1,0 +1,20 @@
+<h3>Construction Details</h3>
+@if(constructionSite) {
+<p>
+  <b>Title:</b> {{ constructionSite?.title }} - {{ constructionSite?.subtitle }}
+</p>
+@if(constructionSite.description && constructionSite.description.length > 0) {
+<div class="d-flex">
+  <b>Description:</b>
+  <ul class="mt-0">
+    @for(description of constructionSite?.description; track description) {
+    @if(description) {
+    <li>{{ description }}</li>
+    } }
+  </ul>
+</div>
+}
+<p>
+  <b>Blocked:</b> {{ constructionSite?.isBlocked === "true" ? "Yes" : "No" }}
+</p>
+}

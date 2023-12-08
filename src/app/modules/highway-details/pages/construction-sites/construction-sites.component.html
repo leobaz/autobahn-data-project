@@ -1,1 +1,9 @@
-<app-construction-sites-list></app-construction-sites-list>
+<app-construction-sites-list
+  (selectedConstructionSite)="onSelectConstructionSite($event)"
+></app-construction-sites-list>
+
+@if(selectedConstructionSite) {
+<app-construction-site-details
+  [constructionSite]="selectedConstructionSite"
+></app-construction-site-details>
+}
