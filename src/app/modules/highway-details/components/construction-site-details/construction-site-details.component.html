@@ -1,13 +1,13 @@
-<h3>Construction Details</h3>
+<h3 id="scrollTarget">Construction Details</h3>
 @if(constructionSite) {
 <p>
-  <b>Title:</b> {{ constructionSite?.title }} - {{ constructionSite?.subtitle }}
+  <b>Title:</b> {{ constructionSite.title }} - {{ constructionSite.subtitle }}
 </p>
 @if(constructionSite.description && constructionSite.description.length > 0) {
 <div class="d-flex">
   <b>Description:</b>
   <ul class="mt-0">
-    @for(description of constructionSite?.description; track description) {
+    @for(description of constructionSite.description; track description) {
     @if(description) {
     <li>{{ description }}</li>
     } }
@@ -15,6 +15,16 @@
 </div>
 }
 <p>
-  <b>Blocked:</b> {{ constructionSite?.isBlocked === "true" ? "Yes" : "No" }}
+  <b>Blocked:</b> {{ constructionSite.isBlocked === "true" ? "Yes" : "No" }}
 </p>
 }
+
+<google-map
+  height="500px"
+  width="100%"
+  [center]="center"
+  [zoom]="zoom"
+  (mapClick)="moveMap($event)"
+  (mapMousemove)="move($event)"
+>
+</google-map>

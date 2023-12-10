@@ -12,7 +12,7 @@ export const routes: Routes = [
       import('./modules/home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: ':highwayId/construction-sites',
+    path: ':highwayId/highway-details',
     loadChildren: () =>
       import('./modules/highway-details//highway-details.module').then(
         (m) => m.HighwayDetailsModule
