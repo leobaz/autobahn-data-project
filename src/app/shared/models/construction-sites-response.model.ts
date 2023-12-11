@@ -1,5 +1,5 @@
-import { ConstructionSite } from './construction-site.model';
+import { Road } from './road.model';
 
 export interface ConstructionSitesResponse {
-  roadworks: ConstructionSite[];
+  roadworks: Road[];
 }

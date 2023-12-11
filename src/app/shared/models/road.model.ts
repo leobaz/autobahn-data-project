@@ -1,4 +1,4 @@
-export interface ConstructionSite {
+export interface Road {
   title: string;
   subtitle: string;
   startTimestamp: string;

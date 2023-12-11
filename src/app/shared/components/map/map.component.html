@@ -1,0 +1,16 @@
+<google-map
+  [height]="height"
+  [width]="width"
+  [center]="center"
+  [zoom]="zoom"
+  (mapClick)="moveMap($event)"
+  (mapMousemove)="move($event)"
+>
+  @if(markerPositions.length > 0) { @for(markerPosition of markerPositions;
+  track markerPosition) {
+  <map-marker
+    [position]="markerPosition"
+    [options]="markerOptions"
+  ></map-marker>
+  } }
+</google-map>

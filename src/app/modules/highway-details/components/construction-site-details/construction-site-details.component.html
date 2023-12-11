@@ -19,12 +19,4 @@
 </p>
 }
 
-<google-map
-  height="500px"
-  width="100%"
-  [center]="center"
-  [zoom]="zoom"
-  (mapClick)="moveMap($event)"
-  (mapMousemove)="move($event)"
->
-</google-map>
+<app-map [center]="center" [zoom]="12"></app-map>

@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { ConstructionSite } from '../../../../shared/models/construction-site.model';
+import { Road } from '../../../../shared/models/road.model';
 
 @Component({
   selector: 'app-construction-site-details',
@@ -7,11 +7,10 @@ import { ConstructionSite } from '../../../../shared/models/construction-site.mo
   styleUrl: './construction-site-details.component.scss',
 })
 export class ConstructionSiteDetailsComponent implements OnChanges {
-  @Input() constructionSite!: ConstructionSite;
-  display: any;
+  @Input() constructionSite!: Road;
   center: google.maps.LatLngLiteral = {
-    lat: 24,
-    lng: 12,
+    lat: 52,
+    lng: 11,
   };
   zoom = 12;
 
@@ -25,12 +24,5 @@ export class ConstructionSiteDetailsComponent implements OnChanges {
       block: 'start',
       inline: 'nearest',
     });
-  }
-
-  moveMap(event: google.maps.MapMouseEvent) {
-    if (event.latLng != null) this.center = event.latLng.toJSON();
-  }
-  move(event: google.maps.MapMouseEvent) {
-    if (event.latLng != null) this.display = event.latLng.toJSON();
   }
 }

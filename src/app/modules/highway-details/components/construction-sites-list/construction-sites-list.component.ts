@@ -10,10 +10,11 @@ import {
 } from '@angular/core';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ConstructionSitesService } from '../../../../core/services/construction-sites.service';
-import { ConstructionSite } from '../../../../shared/models/construction-site.model';
+import { HighwaysService } from '../../../../core/services/highways.service';
+import { Road } from '../../../../shared/models/road.model';
+import { ErrorService } from '../../../../shared/services/error.service';
 @Component({
   selector: 'app-construction-sites-list',
   templateUrl: './construction-sites-list.component.html',
@@ -32,23 +33,31 @@ export class ConstructionSitesListComponent
   displayedColumns: string[] = ['title', 'subtitle', 'blocked', 'startTime'];
   dataSource = new MatTableDataSource<any>();
   resultsLength = 0;
-  @Output() selectedConstructionSite: EventEmitter<ConstructionSite> =
-    new EventEmitter<ConstructionSite>();
+  @Output() selectedConstructionSite: EventEmitter<Road> =
+    new EventEmitter<Road>();
 
   constructor(
-    private route: ActivatedRoute,
-    private constructionSitesService: ConstructionSitesService
+    private constructionSitesService: ConstructionSitesService,
+    private highwaysService: HighwaysService,
+    private errorService: ErrorService
   ) {}
 
   ngOnInit() {
-    this.routeSub = this.route.params.subscribe((params) => {
-      this.highwayId = params['highwayId'];
+    this.highwaysService.selectedHighway$.subscribe((highway) => {
+      this.highwayId = highway;
       if (this.highwayId) {
         this.sub = this.constructionSitesService
           .getHighwayConstructionSites(this.highwayId)
-          .subscribe((data) => {
-            this.dataSource.data = data.roadworks;
-            this.resultsLength = data.roadworks.length;
+          .subscribe({
+            next: (data) => {
+              this.dataSource.data = data.roadworks;
+              this.resultsLength = data.roadworks.length;
+            },
+            error: () => {
+              this.errorService.showErrorSnackBar(
+                'There was an error loading the construction sites.'
+              );
+            },
           });
       }
     });
@@ -58,7 +67,7 @@ export class ConstructionSitesListComponent
     this.dataSource.paginator = this.paginator;
   }
 
-  onRowClick(row: ConstructionSite): void {
+  onRowClick(row: Road): void {
     this.selectedConstructionSite.emit(row);
   }
 

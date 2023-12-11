@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ConstructionSite } from '../../../../shared/models/construction-site.model';
+import { Road } from '../../../../shared/models/road.model';
 
 @Component({
   selector: 'app-construction-sites',
@@ -7,9 +7,9 @@ import { ConstructionSite } from '../../../../shared/models/construction-site.mo
   styleUrl: './construction-sites.component.scss',
 })
 export class ConstructionSitesComponent {
-  selectedConstructionSite: ConstructionSite | undefined;
+  selectedConstructionSite: Road | undefined;
 
-  onSelectConstructionSite(constructionSite: ConstructionSite): void {
+  onSelectConstructionSite(constructionSite: Road): void {
     this.selectedConstructionSite = constructionSite;
   }
 }
