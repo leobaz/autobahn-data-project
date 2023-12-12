@@ -1,16 +1,30 @@
-<google-map
-  [height]="height"
-  [width]="width"
-  [center]="center"
-  [zoom]="zoom"
-  (mapClick)="moveMap($event)"
-  (mapMousemove)="move($event)"
->
-  @if(markerPositions.length > 0) { @for(markerPosition of markerPositions;
-  track markerPosition) {
-  <map-marker
-    [position]="markerPosition"
-    [options]="markerOptions"
-  ></map-marker>
-  } }
-</google-map>
+<section class="mt-10">
+  <google-map
+    [height]="height"
+    [width]="width"
+    [zoom]="zoom"
+    (mapClick)="moveMap($event)"
+    (mapMousemove)="move($event)"
+  >
+    @if(markerDetails.length > 0) { @for(marker of markerDetails; track
+    marker.identifier) {
+    <map-marker
+      #markerMap="mapMarker"
+      [position]="{ lat: +marker.coordinate.lat, lng: +marker.coordinate.long }"
+      [options]="markerOptions"
+      (mapClick)="openInfoWindow(markerMap, marker)"
+    ></map-marker>
+
+    }
+    <map-info-window>
+      <h3>{{ selectedMarker?.title }} - {{ selectedMarker?.subtitle }}</h3>
+      @for(description of selectedMarker?.description; track description) {
+      <p>{{ description }}</p>
+      } @for(parkingFeatureIcon of selectedMarker?.lorryParkingFeatureIcons;
+      track parkingFeatureIcon.icon) { @if(getIconName(parkingFeatureIcon)) {
+      <mat-icon class="mr-5">{{ getIconName(parkingFeatureIcon) }}</mat-icon>
+      } }
+    </map-info-window>
+    }
+  </google-map>
+</section>

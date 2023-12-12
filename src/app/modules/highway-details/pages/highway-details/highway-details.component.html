@@ -1,7 +1,10 @@
 <h2 class="text-center">{{ highway }}</h2>
 <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
   <mat-tab label="Construction Sites"> <app-construction-sites /> </mat-tab>
-  <mat-tab label="Rest Areas"><app-rest-areas /></mat-tab>
+  <mat-tab label="Rest Areas">
+    <ng-template matTabContent>
+      <app-rest-areas /> </ng-template
+  ></mat-tab>
   <mat-tab label="Current Suspensions">Current Suspensions</mat-tab>
   <mat-tab label="Charging Stations">Charging Stations</mat-tab>
 </mat-tab-group>

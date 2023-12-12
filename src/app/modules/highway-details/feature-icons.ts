@@ -1,0 +1,16 @@
+export const featureIcons = [
+  { iconName: 'almofont almo-utensils', matIcon: 'restaurant' },
+  { iconName: 'almofont almo-gaspump', matIcon: 'local_gas_station' },
+  { iconName: 'fa fa-shopping-basket', matIcon: 'shopping_basket' },
+  { iconName: 'fa fa-heartbeat', matIcon: 'monitor_heart' },
+  { iconName: 'fa fa-wifi', matIcon: 'wifi' },
+  { iconName: 'almofont almo-picnic_facility', matIcon: 'food_bank' },
+  { iconName: 'fa fa-shower', matIcon: 'shower' },
+  { iconName: 'almofont almo-restroom', matIcon: 'wc' },
+  { iconName: 'almofont almo-toll_terminal', matIcon: 'toll' },
+  { iconName: 'almofont almo-vending_machine', matIcon: 'kitchen' },
+  { iconName: 'fa fa-eur', matIcon: 'euro' },
+  { iconName: 'fa fa-trash', matIcon: 'delete' },
+  { iconName: 'almofont almo-playground', matIcon: 'sports_handball' },
+  { iconName: 'almofont almo-hotel', matIcon: 'hotel' },
+];

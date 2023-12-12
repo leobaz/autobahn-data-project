@@ -1,3 +1,5 @@
+import { FeatureIcons } from './feature-icon.model';
+
 export interface Road {
   title: string;
   subtitle: string;
@@ -12,6 +14,7 @@ export interface Road {
   point: string;
   coordinate: Coordiante;
   footer: string[];
+  lorryParkingFeatureIcons: FeatureIcons[];
 }
 
 interface Coordiante {
