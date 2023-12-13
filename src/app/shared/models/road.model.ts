@@ -1,4 +1,5 @@
 import { FeatureIcons } from './feature-icon.model';
+import { Impact } from './impact.model';
 
 export interface Road {
   title: string;
@@ -15,6 +16,7 @@ export interface Road {
   coordinate: Coordiante;
   footer: string[];
   lorryParkingFeatureIcons: FeatureIcons[];
+  impact?: Impact;
 }
 
 interface Coordiante {

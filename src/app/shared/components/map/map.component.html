@@ -23,7 +23,12 @@
       } @for(parkingFeatureIcon of selectedMarker?.lorryParkingFeatureIcons;
       track parkingFeatureIcon.icon) { @if(getIconName(parkingFeatureIcon)) {
       <mat-icon class="mr-5">{{ getIconName(parkingFeatureIcon) }}</mat-icon>
-      } }
+      } } @if(selectedMarker?.impact) {
+      <p>
+        <strong>Impact: </strong> {{ selectedMarker?.impact?.upper }} -
+        {{ selectedMarker?.impact?.lower }}
+      </p>
+      }
     </map-info-window>
     }
   </google-map>

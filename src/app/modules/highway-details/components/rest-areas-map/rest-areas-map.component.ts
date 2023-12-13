@@ -23,7 +23,7 @@ export class RestAreasMapComponent implements OnInit {
       this.restAreasService.getRestAreas(highway).subscribe({
         next: (data) => {
           if (data.parking_lorry.length > 0) {
-            this.markerDetails = { ...data.parking_lorry };
+            this.markerDetails = [...data.parking_lorry];
           }
         },
         error: () => {
