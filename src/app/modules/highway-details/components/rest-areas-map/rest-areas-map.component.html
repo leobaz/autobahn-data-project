@@ -1,1 +1,5 @@
+@if(markerDetails.length > 0) {
 <app-map [zoom]="8" [markerDetails]="markerDetails"></app-map>
+} @else {
+<p class="text-center">There's no rest areas in this highway</p>
+}

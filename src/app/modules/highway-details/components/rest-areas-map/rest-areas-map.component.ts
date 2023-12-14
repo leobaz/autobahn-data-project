@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HighwaysService } from '../../../../core/services/highways.service';
-import { RestAreasService } from '../../../../core/services/rest-areas.service';
 import { Road } from '../../../../shared/models/road.model';
 import { ErrorService } from '../../../../shared/services/error.service';
+import { HighwaysService } from '../../../../shared/services/highways.service';
+import { RestAreasService } from '../../../../shared/services/rest-areas.service';
 
 @Component({
   selector: 'app-rest-areas-map',

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { Highways } from '../../shared/models/highways.model';
+import { Highways } from '../models/highways.model';
 
 @Injectable({
   providedIn: 'root',

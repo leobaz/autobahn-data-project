@@ -11,10 +11,10 @@ import {
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
-import { ConstructionSitesService } from '../../../../core/services/construction-sites.service';
-import { HighwaysService } from '../../../../core/services/highways.service';
 import { Road } from '../../../../shared/models/road.model';
+import { ConstructionSitesService } from '../../../../shared/services/construction-sites.service';
 import { ErrorService } from '../../../../shared/services/error.service';
+import { HighwaysService } from '../../../../shared/services/highways.service';
 @Component({
   selector: 'app-construction-sites-list',
   templateUrl: './construction-sites-list.component.html',
@@ -44,8 +44,8 @@ export class ConstructionSitesListComponent
 
   ngOnInit() {
     this.highwaysService.selectedHighway$.subscribe((highway) => {
-      this.highwayId = highway;
-      if (this.highwayId) {
+      if (highway && this.highwayId !== highway) {
+        this.highwayId = highway;
         this.sub = this.constructionSitesService
           .getHighwayConstructionSites(this.highwayId)
           .subscribe({

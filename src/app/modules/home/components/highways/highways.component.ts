@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { HighwaysService } from '../../../../core/services/highways.service';
 import { Highways } from '../../../../shared/models/highways.model';
 import { ErrorService } from '../../../../shared/services/error.service';
+import { HighwaysService } from '../../../../shared/services/highways.service';
 
 @Component({
   selector: 'app-highways',
