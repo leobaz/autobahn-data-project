@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Road } from '../../../../shared/models/road.model';
 import { CurrentSuspensionsService } from '../../../../shared/services/current-suspensions.service';
 import { ErrorService } from '../../../../shared/services/error.service';
@@ -9,8 +10,9 @@ import { HighwaysService } from '../../../../shared/services/highways.service';
   templateUrl: './current-suspensions-map.component.html',
   styleUrl: './current-suspensions-map.component.scss',
 })
-export class CurrentSuspensionsMapComponent {
+export class CurrentSuspensionsMapComponent implements OnDestroy {
   markerDetails: Road[] = [];
+  private sub: Subscription = new Subscription();
 
   constructor(
     private currentSuspensionsService: CurrentSuspensionsService,
@@ -20,7 +22,14 @@ export class CurrentSuspensionsMapComponent {
 
   ngOnInit(): void {
     this.highwaysService.selectedHighway$.subscribe((highway) => {
-      this.currentSuspensionsService.getCurrentSuspensions(highway).subscribe({
+      this.getCurrentSuspensions(highway);
+    });
+  }
+
+  getCurrentSuspensions(highway: string): void {
+    this.sub = this.currentSuspensionsService
+      .getCurrentSuspensions(highway)
+      .subscribe({
         next: (data) => {
           if (data.closure.length > 0) {
             this.markerDetails = [...data.closure];
@@ -32,6 +41,9 @@ export class CurrentSuspensionsMapComponent {
           );
         },
       });
-    });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }

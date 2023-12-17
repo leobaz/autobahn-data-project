@@ -46,19 +46,7 @@ export class ConstructionSitesListComponent
     this.highwaysService.selectedHighway$.subscribe((highway) => {
       if (highway && this.highwayId !== highway) {
         this.highwayId = highway;
-        this.sub = this.constructionSitesService
-          .getHighwayConstructionSites(this.highwayId)
-          .subscribe({
-            next: (data) => {
-              this.dataSource.data = data.roadworks;
-              this.resultsLength = data.roadworks.length;
-            },
-            error: () => {
-              this.errorService.showErrorSnackBar(
-                'There was an error loading the construction sites.'
-              );
-            },
-          });
+        this.getConstructionSites();
       }
     });
   }
@@ -69,6 +57,22 @@ export class ConstructionSitesListComponent
 
   onRowClick(row: Road): void {
     this.selectedConstructionSite.emit(row);
+  }
+
+  getConstructionSites(): void {
+    this.sub = this.constructionSitesService
+      .getHighwayConstructionSites(this.highwayId ?? '')
+      .subscribe({
+        next: (data) => {
+          this.dataSource.data = data.roadworks;
+          this.resultsLength = data.roadworks.length;
+        },
+        error: () => {
+          this.errorService.showErrorSnackBar(
+            'There was an error loading the construction sites.'
+          );
+        },
+      });
   }
 
   ngOnDestroy() {
